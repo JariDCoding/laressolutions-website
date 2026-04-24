@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1440">
+  <title>LaresSolutions – Vochtproblemen oplossingen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #f5f5f5;
+      min-width: 1440px;
+    }
+
+    .hero {
+      position: relative;
+      width: 1440px;
+      height: 1024px;
+      background: #f5f5f5;
+      overflow: hidden;
+    }
+
+    /* ── Logo ── */
+    .logo {
+      position: absolute;
+      left: 42px;
+      top: 42px;
+      width: 178px;
+      height: 53px;
+    }
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* ── Nav CTA ── */
+    .btn-nav {
+      position: absolute;
+      left: 1160px;
+      top: 39px;
+      width: 234px;
+      height: 60px;
+      background: #d17622;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .btn-nav span {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      color: #f5f5f5;
+      white-space: nowrap;
+    }
+
+    /* ── Headline ── */
+    .headline {
+      position: absolute;
+      left: 121px;
+      top: 184px;
+      width: 731px;
+      font-family: 'Karla', sans-serif;
+      font-weight: 400;
+      font-size: 68px;
+      line-height: normal;
+      color: #000000;
+    }
+    .headline .accent { color: #d17622; }
+
+    /* ── Badge (medallion + circular text) ── */
+    .badge-wrapper {
+      position: absolute;
+      left: 1080px;
+      top: 194px;
+      width: 217px;
+      height: 217px;
+    }
+    .badge-wrapper svg {
+      position: absolute;
+      inset: 0;
+    }
+    .medallion {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 68px;
+      height: 68px;
+      filter: drop-shadow(0px 19.372px 29.058px rgba(234, 176, 32, 0.4));
+    }
+    .medallion-layer {
+      position: absolute;
+      inset: 0;
+    }
+    .medallion-layer img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* ── Hero image ── */
+    .hero-img-wrap {
+      position: absolute;
+      left: 121px;
+      top: 514px;
+      width: 588px;
+      height: 392px;
+      border-radius: 50px;
+      overflow: hidden;
+    }
+    .hero-img-wrap img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ── Description ── */
+    .description {
+      position: absolute;
+      left: 786px;
+      top: 514px;
+      width: 532px;
+      font-family: 'Karla', sans-serif;
+      font-weight: 400;
+      font-size: 26px;
+      line-height: 1.4;
+      color: #000000;
+    }
+
+    /* ── Primary CTA ── */
+    .btn-primary {
+      position: absolute;
+      left: 786px;
+      top: 846px;
+      width: 266px;
+      height: 60px;
+      background: #d17622;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    .btn-primary span {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      color: #f5f5f5;
+      white-space: nowrap;
+    }
+
+    /* ── Secondary CTA ── */
+    .btn-secondary {
+      position: absolute;
+      left: 1094px;
+      top: 846px;
+      width: 224px;
+      height: 60px;
+      background: transparent;
+      border: 1px solid #2c2c2c;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .btn-secondary span {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      color: #2c2c2c;
+      white-space: nowrap;
+    }
+
+    /* ── Feature row ── */
+    .feature-item {
+      position: absolute;
+      top: 994px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+    .feature-item img {
+      display: block;
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
+    }
+    .feature-item span {
+      font-family: 'Karla', sans-serif;
+      font-weight: 400;
+      font-size: 26px;
+      color: #000000;
+      line-height: normal;
+      white-space: nowrap;
+    }
+    .feature-1 { left: 74px; }
+    .feature-2 { left: 589px; }
+    .feature-3 { left: 1103px; }
+  </style>
+</head>
+<body>
+  <section class="hero">
+
+    <!-- Logo -->
+    <div class="logo">
+      <img src="lares-logo.png" alt="Lares Solutions logo">
+    </div>
+
+    <!-- Nav CTA -->
+    <a href="#" class="btn-nav">
+      <span>Offerte aanvragen →</span>
+    </a>
+
+    <!-- Headline -->
+    <div class="headline">
+      <div>Innovatieve technieken</div>
+      <div>en systemen tegen</div>
+      <div class="accent">vochtproblemen</div>
+    </div>
+
+    <!-- Badge: circular text + medallion -->
+    <div class="badge-wrapper">
+      <svg viewBox="0 0 217 217" width="217" height="217" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Clockwise circle starting from 12 o'clock -->
+          <path id="cp" d="M 108.5 28.5 A 80 80 0 1 1 108.499 28.5" />
+        </defs>
+        <text font-family="Inter, sans-serif" font-weight="700" font-size="11.5" fill="#000000" letter-spacing="2">
+          <textPath href="#cp" startOffset="80%">25+ JAAR EXPERTISE · TECHNISCHE OPLOSSINGEN ·</textPath>
+        </text>
+      </svg>
+      <div class="medallion">
+        <div class="medallion-layer">
+          <img src="https://www.figma.com/api/mcp/asset/4ab37efa-f65b-412c-b994-4168061bf9bb" alt="">
+        </div>
+        <div class="medallion-layer">
+          <img src="https://www.figma.com/api/mcp/asset/982bb4fa-8d21-4552-acc1-95cf9adadfee" alt="">
+        </div>
+        <div class="medallion-layer" style="inset: 10.9% 10.4% 9.5% 10.4%;">
+          <img src="https://www.figma.com/api/mcp/asset/7a4bb1cc-95a0-4b7a-a65f-6d2d4e9d3cb2" alt="">
+        </div>
+        <div class="medallion-layer" style="inset: 16.2% 14.9% 13.5% 14.9%;">
+          <img src="https://www.figma.com/api/mcp/asset/2ecd188c-5941-41ed-93fa-f22712ccd7d3" alt="">
+        </div>
+        <div class="medallion-layer" style="inset: 26% 24.5% 26% 24.5%;">
+          <img src="https://www.figma.com/api/mcp/asset/ce9d4332-5b99-4cc1-ae8c-de951738bf72" alt="">
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero image -->
+    <div class="hero-img-wrap">
+      <img src="image1.png" alt="Professioneel vochtbehandeling">
+    </div>
+
+    <!-- Description -->
+    <p class="description">
+      Professionele systemen voor opstijgend vocht, kelderdichting, betoninjectie en gevelbescherming. Wij hebben de oplossing vor uw firma..
+    </p>
+
+    <!-- Primary CTA -->
+    <a href="#" class="btn-primary">
+      <span>Ontdek onze systemen →</span>
+    </a>
+
+    <!-- Secondary CTA -->
+    <a href="#" class="btn-secondary">
+      <span>Technisch advies</span>
+    </a>
+
+    <!-- Feature row -->
+    <div class="feature-item feature-1">
+      <img src="https://www.figma.com/api/mcp/asset/888bc24d-8a16-4352-a141-6a9101f64244" alt="">
+      <span>Hoogste kwaliteit</span>
+    </div>
+    <div class="feature-item feature-2">
+      <img src="https://www.figma.com/api/mcp/asset/888bc24d-8a16-4352-a141-6a9101f64244" alt="">
+      <span>Snelle levering</span>
+    </div>
+    <div class="feature-item feature-3">
+      <img src="https://www.figma.com/api/mcp/asset/888bc24d-8a16-4352-a141-6a9101f64244" alt="">
+      <span>Technisch advies</span>
+    </div>
+
+  </section>
+</body>
+</html>
