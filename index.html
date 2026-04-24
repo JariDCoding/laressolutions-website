@@ -153,15 +153,16 @@
     .about-arrow svg { width: 24px; height: 24px; }
     #brickContainer {
       position: absolute;
-      left: 720px; top: 280px;
-      width: 680px; height: 472px;
-      overflow: hidden;
+      left: 0; top: 301px;
+      width: 1440px; height: 723px;
+      /* section overflow:hidden clips the right edge naturally */
     }
     .brick-row {
       position: absolute;
       left: 0;
-      width: 680px;
+      width: 1440px;
       background-repeat: no-repeat;
+      background-size: 1440px 1024px;
     }
 
     /* ── Viewport scaling wrapper ── */
@@ -312,51 +313,44 @@
     });
 
     /* ─── Brick wall: build row-by-row from bottom up on scroll ─── */
+    /* ── Brick wall: rows slide in from right, bottom-first ─── */
     (function initBrickWall() {
-      var ROWS = 12;
-      /* Full staircase: src area x=424,y=301 w=1016 h=723 in the 1440×1024 img */
-      var SRC_X = 424, SRC_Y = 301;
-      var SRC_W = 1016, SRC_H = 723;
-      var ROW_SRC_H = Math.floor(SRC_H / ROWS);   /* source row height: ~60px */
-      var CONT_W = 680, CONT_H = 472;              /* display 65% scale        */
-      var ROW_H = Math.floor(CONT_H / ROWS);       /* display row height: ~39px */
+      /* Convert base64 to blob URL so all rows share one memory reference */
+      var raw   = BRICKS_B64.replace('data:image/png;base64,', '');
+      var bin   = atob(raw);
+      var bytes = new Uint8Array(bin.length);
+      for (var k = 0; k < bin.length; k++) bytes[k] = bin.charCodeAt(k);
+      var blobUrl = URL.createObjectURL(new Blob([bytes], { type: 'image/png' }));
 
-      var img = new Image();
-      img.onload = function() {
-        var container = document.getElementById('brickContainer');
-        for (var i = 0; i < ROWS; i++) {
-          var canvas = document.createElement('canvas');
-          canvas.width  = CONT_W;
-          canvas.height = ROW_H;
-          var ctx = canvas.getContext('2d');
-          /* crop full staircase row, scale down to display size */
-          ctx.drawImage(img,
-            SRC_X, SRC_Y + i * ROW_SRC_H, SRC_W, ROW_SRC_H,
-            0, 0, CONT_W, ROW_H);
-          var div = document.createElement('div');
-          div.className = 'brick-row';
-          div.style.top  = (i * ROW_H) + 'px';
-          div.style.height = ROW_H + 'px';
-          div.style.backgroundSize = CONT_W + 'px ' + ROW_H + 'px';
-          div.style.backgroundImage = "url('" + canvas.toDataURL() + "')";
-          container.appendChild(div);
+      var container    = document.getElementById('brickContainer');
+      var ROWS         = 12;
+      var TOTAL_H      = 723;                       /* brick area height in image */
+      var BRICK_TOP    = 301;                       /* brick area top in image    */
+      var ROW_H        = Math.floor(TOTAL_H / ROWS); /* ~60 px per row            */
+
+      for (var i = 0; i < ROWS; i++) {
+        var div = document.createElement('div');
+        div.className = 'brick-row';
+        div.style.top             = (i * ROW_H) + 'px';
+        div.style.height          = ROW_H + 'px';
+        div.style.backgroundImage = "url('" + blobUrl + "')";
+        /* backgroundPosition: x=0 (image left = section left), y = offset for this row */
+        div.style.backgroundPosition = '0px -' + (BRICK_TOP + i * ROW_H) + 'px';
+        container.appendChild(div);
+      }
+
+      /* Slide in from the RIGHT edge of the screen, bottom rows first */
+      gsap.from('.brick-row', {
+        x: 1440,
+        duration: 0.52,
+        stagger: { each: 0.07, from: 'end' },
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#brickContainer',
+          start: 'bottom 88%',
+          toggleActions: 'play none none reverse'
         }
-
-        /* Brick-laying: each row drops in from above with sharp stop (heavy weight) */
-        gsap.from('.brick-row', {
-          opacity: 0,
-          y: -22,
-          duration: 0.3,
-          stagger: { each: 0.07, from: 'end' },
-          ease: 'power4.out',
-          scrollTrigger: {
-            trigger: '#brickContainer',
-            start: 'bottom 88%',
-            toggleActions: 'play none none reverse'
-          }
-        });
-      };
-      img.src = BRICKS_B64;
+      });
     })();
 
     /* ─── Viewport scaling: scale up for 1920 / 2560 / 4K ─────── */
