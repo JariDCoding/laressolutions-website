@@ -2,91 +2,91 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=1920">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>LaresSolutions – Vochtproblemen oplossingen</title>
   <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400&family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #f5f5f5; min-width: 1920px; }
+    body { background: #f5f5f5; }
     .hero {
       position: relative;
-      width: 1920px;
-      height: 1080px;
+      width: 100vw;
+      height: 100vh;
       background: #f5f5f5;
       overflow: hidden;
     }
-    .logo { position: absolute; left: 56px; top: 44px; width: 237px; height: 56px; }
+    .logo { position: absolute; left: 2.92vw; top: 4.07vh; width: 12.34vw; height: 5.19vh; }
     .logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
     .btn-nav {
-      position: absolute; left: 1547px; top: 41px; width: 312px; height: 63px;
+      position: absolute; left: 80.57vw; top: 3.8vh; width: 16.25vw; height: 5.83vh;
       background: #d17622; border-radius: 50px;
       display: flex; align-items: center; justify-content: center;
       text-decoration: none; cursor: pointer;
     }
     .btn-nav span {
-      font-family: 'Inter', sans-serif; font-weight: 400; font-size: 17px;
+      font-family: 'Inter', sans-serif; font-weight: 400; font-size: clamp(11px, 0.89vw, 17px);
       color: #f5f5f5; white-space: nowrap;
     }
     .headline {
-      position: absolute; left: 161px; top: 194px; width: 975px;
+      position: absolute; left: 8.39vw; top: 17.96vh; width: 50.78vw;
       font-family: 'Karla', sans-serif; font-weight: 400;
-      font-size: 72px; line-height: normal; color: #000000;
+      font-size: clamp(36px, 3.75vw, 90px); line-height: normal; color: #000000;
     }
     .headline .accent { color: #d17622; }
     .badge-wrapper {
-      position: absolute; left: 1440px; top: 205px; width: 229px; height: 229px;
+      position: absolute; left: 75vw; top: 18.98vh; width: 11.93vw; height: 11.93vw;
     }
-    .badge-wrapper svg { position: absolute; inset: 0; }
+    .badge-wrapper svg { position: absolute; inset: 0; width: 100%; height: 100%; }
     .medallion {
       position: absolute; left: 50%; top: 50%;
       transform: translate(-50%, -50%);
-      width: 72px; height: 72px;
+      width: 3.75vw; height: 3.75vw;
       filter: drop-shadow(0px 19.372px 29.058px rgba(234,176,32,0.4));
     }
     .medallion-layer { position: absolute; inset: 0; }
     .medallion-layer img { display: block; width: 100%; height: 100%; object-fit: contain; }
     .hero-img-wrap {
-      position: absolute; left: 161px; top: 542px; width: 784px; height: 413px;
-      border-radius: 50px; overflow: hidden;
+      position: absolute; left: 8.39vw; top: 50.19vh; width: 40.83vw; height: 38.24vh;
+      border-radius: 2.6vw; overflow: hidden;
     }
     .hero-img-wrap img { display: block; width: 100%; height: 100%; object-fit: cover; }
     .description {
-      position: absolute; left: 1048px; top: 542px; width: 709px;
+      position: absolute; left: 54.58vw; top: 50.19vh; width: 36.93vw;
       font-family: 'Karla', sans-serif; font-weight: 400;
-      font-size: 27px; line-height: 1.4; color: #000000;
+      font-size: clamp(14px, 1.41vw, 27px); line-height: 1.4; color: #000000;
     }
     .btn-primary {
-      position: absolute; left: 1048px; top: 892px; width: 355px; height: 63px;
+      position: absolute; left: 54.58vw; top: 82.59vh; width: 18.49vw; height: 5.83vh;
       background: #d17622; border-radius: 50px;
       display: flex; align-items: center; justify-content: center;
       text-decoration: none; cursor: pointer; overflow: hidden;
     }
     .btn-primary span {
-      font-family: 'Inter', sans-serif; font-weight: 400; font-size: 17px;
+      font-family: 'Inter', sans-serif; font-weight: 400; font-size: clamp(11px, 0.89vw, 17px);
       color: #f5f5f5; white-space: nowrap;
     }
     .btn-secondary {
-      position: absolute; left: 1459px; top: 892px; width: 299px; height: 63px;
+      position: absolute; left: 75.99vw; top: 82.59vh; width: 15.57vw; height: 5.83vh;
       background: transparent; border: 1px solid #2c2c2c; border-radius: 50px;
       display: flex; align-items: center; justify-content: center;
       text-decoration: none; cursor: pointer;
     }
     .btn-secondary span {
-      font-family: 'Inter', sans-serif; font-weight: 400; font-size: 17px;
+      font-family: 'Inter', sans-serif; font-weight: 400; font-size: clamp(11px, 0.89vw, 17px);
       color: #2c2c2c; white-space: nowrap;
     }
     .feature-item {
-      position: absolute; top: 1048px;
-      display: flex; align-items: center; gap: 12px;
+      position: absolute; top: 97.04vh;
+      display: flex; align-items: center; gap: 0.625vw;
     }
-    .feature-item img { display: block; width: 35px; height: 35px; flex-shrink: 0; }
+    .feature-item img { display: block; width: 1.82vw; height: 1.82vw; flex-shrink: 0; }
     .feature-item span {
       font-family: 'Karla', sans-serif; font-weight: 400;
-      font-size: 27px; color: #000000; line-height: normal; white-space: nowrap;
+      font-size: clamp(14px, 1.41vw, 27px); color: #000000; line-height: normal; white-space: nowrap;
     }
-    .feature-1 { left: 99px; }
-    .feature-2 { left: 785px; }
-    .feature-3 { left: 1471px; }
+    .feature-1 { left: 5.16vw; }
+    .feature-2 { left: 40.89vw; }
+    .feature-3 { left: 76.61vw; }
   
     /* ── Spinning badge text (anti-clockwise) ── */
     .badge-wrapper svg {
@@ -104,36 +104,36 @@
     /* ── About section ── */
     .about-section {
       position: relative;
-      width: 1920px;
-      height: 1080px;
+      width: 100vw;
+      height: 100vh;
       background: #f5f5f5;
       overflow: hidden;
     }
     .about-heading {
       position: absolute;
-      left: 99px; top: 234px;
-      width: 975px;
+      left: 5.16vw; top: 21.67vh;
+      width: 50.78vw;
       font-family: 'Karla', sans-serif;
       font-weight: 400;
-      font-size: 72px;
+      font-size: clamp(36px, 3.75vw, 90px);
       line-height: normal;
       color: #000000;
     }
     .about-heading .accent { color: #d17622; }
     .about-body {
       position: absolute;
-      left: 108px; top: 409px;
-      width: 1065px;
+      left: 5.63vw; top: 37.87vh;
+      width: 55.47vw;
       font-family: 'Karla', sans-serif;
       font-weight: 400;
-      font-size: 27px;
+      font-size: clamp(14px, 1.41vw, 27px);
       line-height: 1.5;
       color: #000000;
     }
     .about-btn {
       position: absolute;
-      left: 108px; top: 645px;
-      width: 355px; height: 63px;
+      left: 5.63vw; top: 59.72vh;
+      width: 18.49vw; height: 5.83vh;
       background: #d17622;
       border-radius: 50px;
       display: flex; align-items: center; justify-content: center;
@@ -141,33 +141,33 @@
     }
     .about-btn span {
       font-family: 'Inter', sans-serif;
-      font-weight: 400; font-size: 17px;
+      font-weight: 400; font-size: clamp(11px, 0.89vw, 17px);
       color: #f5f5f5; white-space: nowrap;
     }
     .about-arrow {
       position: absolute;
-      left: 108px; top: 982px;
-      width: 51px; height: 51px;
+      left: 5.63vw; top: 90.93vh;
+      width: 2.66vw; height: 2.66vw;
       display: flex; align-items: center; justify-content: center;
     }
-    .about-arrow svg { width: 24px; height: 24px; }
+    .about-arrow svg { width: 1.25vw; height: 1.25vw; }
     #brickContainer {
       position: absolute;
-      left: 0; top: 317px;
-      width: 1920px; height: 762px;
+      left: 0; top: 29.35vh;
+      width: 100vw; height: 56.45vh;
       /* section overflow:hidden clips the right edge naturally */
     }
     .brick-row {
       position: absolute;
       left: 0;
-      width: 1920px;
+      width: 100vw;
       background-repeat: no-repeat;
-      background-size: 1920px 1080px;
+      background-size: 100vw 100vh;
     }
 
     /* ── Viewport scaling wrapper ── */
     #page-wrapper {
-      width: 1920px;
+      width: 100vw;
       transform-origin: top left;
     }
 
@@ -324,8 +324,8 @@
 
       var container    = document.getElementById('brickContainer');
       var ROWS         = 12;
-      var TOTAL_H      = 762;                       /* brick area height in image */
-      var BRICK_TOP    = 317;                       /* brick area top in image    */
+      var TOTAL_H      = Math.round(window.innerHeight * 0.5645); /* 70.56vh * 0.8 */
+      var BRICK_TOP    = Math.round(window.innerHeight * 0.2935); /* 29.35vh      */
       var ROW_H        = Math.floor(TOTAL_H / ROWS); /* ~60 px per row            */
 
       for (var i = 0; i < ROWS; i++) {
@@ -340,7 +340,7 @@
       }
 
       /* Set initial state: all rows parked off-screen to the right */
-      gsap.set('.brick-row', { x: 1920 });
+      gsap.set('.brick-row', { x: window.innerWidth });
 
       /* Fire when about-section top hits 60% of viewport — guaranteed reachable */
       ScrollTrigger.create({
@@ -358,29 +358,7 @@
       });
     })();
 
-    /* ─── Viewport scaling: scale up for 1920 / 2560 / 4K ─────── */
-    function applyViewportScale() {
-      var vw = window.innerWidth;
-      var vh = window.innerHeight;
-      var wrapper = document.getElementById('page-wrapper');
-      if (vw <= 1920) {
-        wrapper.style.transform = '';
-        document.body.style.height = '';
-        return;
-      }
-      /* Scale to fit hero (1440×1024) within viewport */
-      var scale = Math.min(vw / 1920, vh / 1080);
-      wrapper.style.transform = 'scale(' + scale + ')';
-      wrapper.style.transformOrigin = 'top left';
-      /* Compensate for transform not affecting layout flow */
-      var naturalH = wrapper.offsetHeight;
-      document.body.style.height = (naturalH * scale) + 'px';
-      /* Refresh ScrollTrigger so positions recalculate */
-      if (window.ScrollTrigger) ScrollTrigger.refresh();
-    }
-
-    window.addEventListener('resize', applyViewportScale);
-    applyViewportScale();
+    /* Responsive: vw/vh units handle all viewport sizes natively */
   </script>
 
 </body>
